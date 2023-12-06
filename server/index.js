@@ -10,6 +10,10 @@ const mongoose = require('mongoose');
 
 const PORT = process.env.PORT || 5001;
 
+app.use(cors())
+app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.json())
+
 mongoose.connect(process.env.DB_URL)
 .then(() => console.log('Database Connected.'))
 .catch((err) => console.log(err));
